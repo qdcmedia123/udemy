@@ -8,6 +8,8 @@ const users = require('./routes/api/users');
 const profile = require('./routes/api/profile');
 const posts = require('./routes/api/posts');
 
+
+
 const app = express();
 
 // Body parser middleware
@@ -23,6 +25,7 @@ mongoose
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
+ 
 // Passport middleware
 app.use(passport.initialize());
 
