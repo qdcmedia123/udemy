@@ -17,21 +17,16 @@ class Navbar extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
-
-<li className="nav-item">
+        <li className="nav-item">
           <Link className="nav-link" to="/feed">
             Post Feed
           </Link>
         </li>
-
-
-      <li className="nav-item">
+        <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
           </Link>
         </li>
-
-
         <li className="nav-item">
           <a
             href=""
@@ -53,16 +48,11 @@ class Navbar extends Component {
 
     const guestLinks = (
       <ul className="navbar-nav ml-auto">
-       
-         
-
         <li className="nav-item">
           <Link className="nav-link" to="/register">
             Sign Up
           </Link>
         </li>
-
-
         <li className="nav-item">
           <Link className="nav-link" to="/login">
             Login
@@ -88,9 +78,6 @@ class Navbar extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav mr-auto">
-        
-       
-
               <li className="nav-item">
                 <Link className="nav-link" to="/profiles">
                   {' '}
@@ -115,4 +102,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(Navbar);
+export default connect(mapStateToProps, { logoutUser, clearCurrentProfile })(
+  Navbar
+);

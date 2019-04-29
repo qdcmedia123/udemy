@@ -9,23 +9,16 @@ import { getPosts } from '../../actions/postActions';
 class Posts extends Component {
   componentDidMount() {
     this.props.getPosts();
-
   }
 
   render() {
-
     const { posts, loading } = this.props.post;
-    const auth = this.props.auth;
     let postContent;
 
-    const test = [];
-
-    if(posts === null || loading) {
-
-      postContent = <Spinner/>
+    if (posts === null || loading) {
+      postContent = <Spinner />;
     } else {
-
-      postContent = <PostFeed posts = {posts}/>
+      postContent = <PostFeed posts={posts} />;
     }
 
     return (
@@ -35,8 +28,6 @@ class Posts extends Component {
             <div className="col-md-12">
               <PostForm />
               {postContent}
-
-              {auth.user.id}
             </div>
           </div>
         </div>
@@ -51,9 +42,7 @@ Posts.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  post: state.post,
-  auth: state.auth
+  post: state.post
 });
 
-export default connect(mapStateToProps, {getPosts})(Posts);
-
+export default connect(mapStateToProps, { getPosts })(Posts);

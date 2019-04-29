@@ -23,13 +23,12 @@ class Profile extends Component {
   }
 
   render() {
-  	const {profile, loading } = this.props.profile;
-  	let profileContent;
+    const { profile, loading } = this.props.profile;
+    let profileContent;
 
-  	if(profile === null || loading ) {
-  		profileContent = <Spinner />
-
-  	} else {
+    if (profile === null || loading) {
+      profileContent = <Spinner />;
+    } else {
       profileContent = (
         <div>
           <div className="row">
@@ -40,9 +39,6 @@ class Profile extends Component {
             </div>
             <div className="col-md-6" />
           </div>
-
-
-          
           <ProfileHeader profile={profile} />
           <ProfileAbout profile={profile} />
           <ProfileCreds

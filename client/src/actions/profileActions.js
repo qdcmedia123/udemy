@@ -29,7 +29,7 @@ export const getCurrentProfile = () => dispatch => {
 };
 
 // Get profile by handle
-export const getProfileByHandle = (handle) => dispatch => {
+export const getProfileByHandle = handle => dispatch => {
   dispatch(setProfileLoading());
   axios
     .get(`/api/profile/handle/${handle}`)
@@ -60,10 +60,10 @@ export const createProfile = (profileData, history) => dispatch => {
     );
 };
 
-
-export const addEducation = (eduData, history) => dispatch => {
+// Add experience
+export const addExperience = (expData, history) => dispatch => {
   axios
-    .post('/api/profile/education', eduData)
+    .post('/api/profile/experience', expData)
     .then(res => history.push('/dashboard'))
     .catch(err =>
       dispatch({
@@ -73,12 +73,10 @@ export const addEducation = (eduData, history) => dispatch => {
     );
 };
 
-
-
-// Add experience
-export const addExperience = (expData, history) => dispatch => {
+// Add education
+export const addEducation = (eduData, history) => dispatch => {
   axios
-    .post('/api/profile/experience', expData)
+    .post('/api/profile/education', eduData)
     .then(res => history.push('/dashboard'))
     .catch(err =>
       dispatch({
@@ -106,8 +104,7 @@ export const deleteExperience = id => dispatch => {
     );
 };
 
-// Delete Education 
-// Delete Experience
+// Delete Education
 export const deleteEducation = id => dispatch => {
   axios
     .delete(`/api/profile/education/${id}`)
@@ -125,10 +122,9 @@ export const deleteEducation = id => dispatch => {
     );
 };
 
-
-// Get Profiles
-
+// Get all profiles
 export const getProfiles = () => dispatch => {
+  dispatch(setProfileLoading());
   axios
     .get('/api/profile/all')
     .then(res =>
@@ -140,13 +136,10 @@ export const getProfiles = () => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_PROFILES,
-        payload: err.response.data
+        payload: null
       })
     );
 };
-
-
-
 
 // Delete account & profile
 export const deleteAccount = () => dispatch => {
